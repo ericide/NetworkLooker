@@ -2,8 +2,6 @@
 
 target 'Watcher' do
 
-pod 'CocoaAsyncSocket'
-
 end
 
 

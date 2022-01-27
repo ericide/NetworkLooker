@@ -7,10 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MainWindowController.h"
+
+
+void start();
+void stop();
+void setFN(void * f);
+void hahaha();
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (strong) MainWindowController *windowController;
+
 @end
 

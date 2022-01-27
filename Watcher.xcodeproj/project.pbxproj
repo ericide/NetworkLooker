@@ -7,23 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21F1CE502223B69700758CB5 /* NSSSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F1CE4F2223B69700758CB5 /* NSSSServer.m */; };
-		21F1CE532223BB8F00758CB5 /* NSSSHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F1CE522223BB8F00758CB5 /* NSSSHandler.m */; };
 		6A7A3FBE22229F2E00700103 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A3FBD22229F2E00700103 /* AppDelegate.m */; };
 		6A7A3FC022229F3000700103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A7A3FBF22229F3000700103 /* Assets.xcassets */; };
 		6A7A3FC322229F3000700103 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7A3FC122229F3000700103 /* MainMenu.xib */; };
 		6A7A3FC622229F3000700103 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A3FC522229F3000700103 /* main.m */; };
-		6A7A3FD02222EAC200700103 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A7A3FCE2222EAC200700103 /* MainWindowController.m */; };
 		6A7A3FD12222EAC200700103 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7A3FCF2222EAC200700103 /* MainWindowController.xib */; };
+		94D601E727A28FA000AFB56D /* netlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D601E627A28FA000AFB56D /* netlib.a */; };
+		94D601EA27A2923B00AFB56D /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D601E927A2923B00AFB56D /* MainWindowController.swift */; };
 		B7AFCD20BD3A1A3327EEEB62 /* libPods-Watcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EF8AE8CBEDD262B7FCCC54 /* libPods-Watcher.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		19EF8AE8CBEDD262B7FCCC54 /* libPods-Watcher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Watcher.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21F1CE4E2223B69700758CB5 /* NSSSServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSSSServer.h; sourceTree = "<group>"; };
-		21F1CE4F2223B69700758CB5 /* NSSSServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSSServer.m; sourceTree = "<group>"; };
-		21F1CE512223BB8F00758CB5 /* NSSSHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSSSHandler.h; sourceTree = "<group>"; };
-		21F1CE522223BB8F00758CB5 /* NSSSHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSSSHandler.m; sourceTree = "<group>"; };
 		5FD80F5D26B951E91C449226 /* Pods-Watcher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watcher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watcher/Pods-Watcher.release.xcconfig"; sourceTree = "<group>"; };
 		6A7A3FB922229F2E00700103 /* Watcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7A3FBC22229F2E00700103 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,9 +28,10 @@
 		6A7A3FC422229F3000700103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A7A3FC522229F3000700103 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A7A3FC722229F3000700103 /* Watcher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Watcher.entitlements; sourceTree = "<group>"; };
-		6A7A3FCD2222EAC200700103 /* MainWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
-		6A7A3FCE2222EAC200700103 /* MainWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		6A7A3FCF2222EAC200700103 /* MainWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		94D601E627A28FA000AFB56D /* netlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = netlib.a; sourceTree = "<group>"; };
+		94D601E827A2923B00AFB56D /* Watcher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Watcher-Bridging-Header.h"; sourceTree = "<group>"; };
+		94D601E927A2923B00AFB56D /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		C3FEE21EEC43C63BAF720DC9 /* Pods-Watcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watcher/Pods-Watcher.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7AFCD20BD3A1A3327EEEB62 /* libPods-Watcher.a in Frameworks */,
+				94D601E727A28FA000AFB56D /* netlib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,20 +77,17 @@
 		6A7A3FBB22229F2E00700103 /* Watcher */ = {
 			isa = PBXGroup;
 			children = (
+				94D601E627A28FA000AFB56D /* netlib.a */,
 				6A7A3FBC22229F2E00700103 /* AppDelegate.h */,
 				6A7A3FBD22229F2E00700103 /* AppDelegate.m */,
-				6A7A3FCD2222EAC200700103 /* MainWindowController.h */,
-				6A7A3FCE2222EAC200700103 /* MainWindowController.m */,
 				6A7A3FCF2222EAC200700103 /* MainWindowController.xib */,
-				21F1CE4E2223B69700758CB5 /* NSSSServer.h */,
-				21F1CE4F2223B69700758CB5 /* NSSSServer.m */,
-				21F1CE512223BB8F00758CB5 /* NSSSHandler.h */,
-				21F1CE522223BB8F00758CB5 /* NSSSHandler.m */,
 				6A7A3FBF22229F3000700103 /* Assets.xcassets */,
 				6A7A3FC122229F3000700103 /* MainMenu.xib */,
 				6A7A3FC422229F3000700103 /* Info.plist */,
 				6A7A3FC522229F3000700103 /* main.m */,
 				6A7A3FC722229F3000700103 /* Watcher.entitlements */,
+				94D601E927A2923B00AFB56D /* MainWindowController.swift */,
+				94D601E827A2923B00AFB56D /* Watcher-Bridging-Header.h */,
 			);
 			path = Watcher;
 			sourceTree = "<group>";
@@ -139,6 +133,7 @@
 				TargetAttributes = {
 					6A7A3FB822229F2E00700103 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -199,10 +194,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A7A3FD02222EAC200700103 /* MainWindowController.m in Sources */,
-				21F1CE502223B69700758CB5 /* NSSSServer.m in Sources */,
 				6A7A3FC622229F3000700103 /* main.m in Sources */,
-				21F1CE532223BB8F00758CB5 /* NSSSHandler.m in Sources */,
+				94D601EA27A2923B00AFB56D /* MainWindowController.swift in Sources */,
 				6A7A3FBE22229F2E00700103 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,16 +330,25 @@
 			baseConfigurationReference = C3FEE21EEC43C63BAF720DC9 /* Pods-Watcher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V5M7QGNG62;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Watcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Watcher",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.Watcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Watcher/Watcher-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -355,16 +357,24 @@
 			baseConfigurationReference = 5FD80F5D26B951E91C449226 /* Pods-Watcher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V5M7QGNG62;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Watcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Watcher",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.demo.Watcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Watcher/Watcher-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

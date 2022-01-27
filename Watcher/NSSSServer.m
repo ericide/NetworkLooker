@@ -7,7 +7,6 @@
 //
 
 #import "NSSSServer.h"
-#import <GCDAsyncSocket.h>
 #import "NSSSHandler.h"
 
 
@@ -34,47 +33,15 @@ static NSSSServer* instance = nil;
 {
     self = [super init];
     if (self) {
-        self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-        self.started = NO;
-        self.handlers = [[NSMutableArray alloc] init];
-        NSLog(@"%p",self.handlers);
+
     }
     return self;
 }
 
 - (void)start{
-    NSError *err = nil;
-    if ([self.asyncSocket acceptOnPort:58889 error:&err])
-    {
-        UInt16 port = [self.asyncSocket localPort];
-        NSLog(@"%d",port);
-        
-        self.started = YES;
-    }
-    else
-    {
-        NSLog(@"Error in acceptOnPort:error: -> %@", err);
-    }
 }
 - (void)stop{
-    [self.asyncSocket disconnect];
-    self.started = NO;
 }
 
-- (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
-{
 
-    NSLog(@"Accepted new socket from %@:%hu", [newSocket connectedHost], [newSocket connectedPort]);
-    
-    
-    NSSSHandler * handler = [[NSSSHandler alloc]initWithSocket:newSocket handlersPool:self.handlers];
-   
-    [self.handlers addObject:handler];
-    [handler start];
-}
-
-- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
-{
-    NSLog(@"dissocket");
-}
 @end
