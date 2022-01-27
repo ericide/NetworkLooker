@@ -9,8 +9,16 @@
 #import <Watcher-Swift.h>
 
 
-void hahaha(){
-    NSLog(@"callback!!!!%@",[NSThread currentThread]);
+void hahaha(int cid, void * byte, int len){
+    
+    char * p = (char *)byte;
+    
+    for (int i = 0; i < len; i ++) {
+        printf("%c", p[i]);
+    }
+    
+    
+    NSLog(@"callback!!!!%d %d %@",cid, len, [NSThread currentThread]);
 }
 
 @interface AppDelegate ()
