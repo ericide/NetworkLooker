@@ -14,6 +14,7 @@
 		6A7A3FD12222EAC200700103 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7A3FCF2222EAC200700103 /* MainWindowController.xib */; };
 		94D601E727A28FA000AFB56D /* netlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D601E627A28FA000AFB56D /* netlib.a */; };
 		94D601EA27A2923B00AFB56D /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D601E927A2923B00AFB56D /* MainWindowController.swift */; };
+		94D601EC27A39C6B00AFB56D /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D601EB27A39C6B00AFB56D /* DataParser.swift */; };
 		B7AFCD20BD3A1A3327EEEB62 /* libPods-Watcher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19EF8AE8CBEDD262B7FCCC54 /* libPods-Watcher.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		94D601E627A28FA000AFB56D /* netlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = netlib.a; sourceTree = "<group>"; };
 		94D601E827A2923B00AFB56D /* Watcher-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Watcher-Bridging-Header.h"; sourceTree = "<group>"; };
 		94D601E927A2923B00AFB56D /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		94D601EB27A39C6B00AFB56D /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		C3FEE21EEC43C63BAF720DC9 /* Pods-Watcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watcher/Pods-Watcher.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				6A7A3FC522229F3000700103 /* main.m */,
 				6A7A3FC722229F3000700103 /* Watcher.entitlements */,
 				94D601E927A2923B00AFB56D /* MainWindowController.swift */,
+				94D601EB27A39C6B00AFB56D /* DataParser.swift */,
 				94D601E827A2923B00AFB56D /* Watcher-Bridging-Header.h */,
 			);
 			path = Watcher;
@@ -196,6 +199,7 @@
 			files = (
 				6A7A3FC622229F3000700103 /* main.m in Sources */,
 				94D601EA27A2923B00AFB56D /* MainWindowController.swift in Sources */,
+				94D601EC27A39C6B00AFB56D /* DataParser.swift in Sources */,
 				6A7A3FBE22229F2E00700103 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,14 +20,14 @@ import Cocoa
         
         if (isStart) {
             stop();
-            self.serverBtn.image =  NSImage.init(named: "power_button_off")
             self.isStart = false
+            self.serverBtn.title = "start"
         } else {
             DispatchQueue.global().async {
                 start();
             }
             self.isStart = true
-            self.serverBtn.image = NSImage.init(named: "power_button_on")
+            self.serverBtn.title = "stop"
         }
     }
     
@@ -37,8 +37,6 @@ import Cocoa
         // Do view setup here.
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        self.serverBtn.image = NSImage.init(named: "power_button_off")
         
     }
     

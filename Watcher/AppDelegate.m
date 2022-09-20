@@ -9,16 +9,20 @@
 #import <Watcher-Swift.h>
 
 
-void hahaha(int cid, void * byte, int len){
+void hahaha(int cid, void * byte, int len, int dir){
     
     char * p = (char *)byte;
     
-    for (int i = 0; i < len; i ++) {
-        printf("%c", p[i]);
-    }
+//    for (int i = 0; i < len; i ++) {
+//        printf("%c", p[i]);
+//    }
+    
+    [[DataParserManager shared] addDataWithDir:dir identity:cid data:[NSData dataWithBytes:byte length:len]];
+    
+
     
     
-    NSLog(@"callback!!!!%d %d %@",cid, len, [NSThread currentThread]);
+//    NSLog(@"callback!!!!%d %d %d %@", dir,cid, len, [NSThread currentThread]);
 }
 
 @interface AppDelegate ()

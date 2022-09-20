@@ -12,7 +12,7 @@
 void start();
 void stop();
 void setFN(void * f);
-void hahaha(int cid, void * byte, int len);
+void hahaha(int cid, void * byte, int len, int dir);
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
