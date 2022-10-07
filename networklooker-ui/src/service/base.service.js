@@ -32,3 +32,9 @@ export const fetch = (path, params) => {
         GResolve[index] = {resolve, reject}
     })
 }
+
+// export const startService = () => {
+//     window.webkit.messageHandlers.htmlMethods.postMessage({
+//         cmd: 'start',
+//     });
+// }

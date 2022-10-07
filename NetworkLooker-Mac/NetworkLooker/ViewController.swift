@@ -21,7 +21,11 @@ class ViewController: NSViewController {
         delegateController.webview = webView
         webView.configuration.userContentController.add(delegateController, name: "htmlMethods")
         
-        loadFromDebug()
+//        loadFromDebug()
+        loadFromBundle()
+        DispatchQueue.global().async {
+            start()
+        }
     }
     
     func loadFromBundle() {
