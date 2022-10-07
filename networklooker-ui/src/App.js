@@ -15,6 +15,9 @@ const App = () => {
     const [requestHeader, setRequestHeader] = useState([])
     const [responseHeader, setResponseHeader] = useState([])
 
+    const [requestBody, setRequestBody] = useState("")
+    const [responseBody, setResponseBody] = useState("")
+
     useEffect(() => {
         html_Methods()
         const i = setInterval(function (){
@@ -74,12 +77,17 @@ const App = () => {
 
             setRequestHeader(list1)
             setResponseHeader(list2)
+
+            setRequestBody(res.request_body)
+
+            var decodedString = atob(res.response_body);
+            setResponseBody(decodedString)
         })
     }
 
     return (
         <div style={{display: "flex", flexDirection: "row", position: "fixed", left: 0, right: 0, top: 0, bottom: 0}}>
-            <div style={{width: "250px", flexShrink: 0, overflow: "hidden"}}>
+            <div style={{width: "250px", flexShrink: 0, overflowY: "auto"}}>
                 {/*<Button type="primary" onClick={html_Methods}>hahahah</Button>*/}
                 <RequestTree onClick={onClick}
                     style={{height: "100%"}}
@@ -92,10 +100,12 @@ const App = () => {
 
                 <div style={{flex: 1, flexShrink: 0, overflow: "auto"}}>
                     <HeaderView headers={requestHeader}/>
+                    {requestBody}
                 </div>
                 <div style={{backgroundColor: "black", height: "2px"}}></div>
                 <div style={{flex: 1, flexShrink: 0, overflow: "auto"}}>
                     <HeaderView headers={responseHeader}/>
+                    {responseBody}
                 </div>
             </div>
         </div>
