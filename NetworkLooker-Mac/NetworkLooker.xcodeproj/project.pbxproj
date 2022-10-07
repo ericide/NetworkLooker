@@ -12,8 +12,10 @@
 		940653EB28EDEE5F0005ABEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940653EA28EDEE5F0005ABEE /* ViewController.swift */; };
 		940653ED28EDEE610005ABEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940653EC28EDEE610005ABEE /* Assets.xcassets */; };
 		940653F028EDEE610005ABEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940653EE28EDEE610005ABEE /* Main.storyboard */; };
-		940653F828EDEF560005ABEE /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 940653F728EDEF560005ABEE /* index.html */; };
 		940653FB28EDF3D80005ABEE /* NetworkLooker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 940653F928EDF3D80005ABEE /* NetworkLooker.a */; };
+		9406542A28EEC6390005ABEE /* app.bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = 9406542828EEC6390005ABEE /* app.bundle.js */; };
+		9406542B28EEC6390005ABEE /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 9406542928EEC6390005ABEE /* index.html */; };
+		9406542D28EECCE70005ABEE /* DomainTransmit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9406542C28EECCE70005ABEE /* DomainTransmit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,10 +27,12 @@
 		940653EC28EDEE610005ABEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		940653EF28EDEE610005ABEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		940653F128EDEE610005ABEE /* NetworkLooker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetworkLooker.entitlements; sourceTree = "<group>"; };
-		940653F728EDEF560005ABEE /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		940653F928EDF3D80005ABEE /* NetworkLooker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = NetworkLooker.a; sourceTree = "<group>"; };
 		940653FA28EDF3D80005ABEE /* NetworkLooker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkLooker.h; sourceTree = "<group>"; };
 		940653FC28EDF3F90005ABEE /* NetworkLooker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkLooker-Bridging-Header.h"; sourceTree = "<group>"; };
+		9406542828EEC6390005ABEE /* app.bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = app.bundle.js; path = "../../../networklooker-ui/dist/app.bundle.js"; sourceTree = "<group>"; };
+		9406542928EEC6390005ABEE /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../networklooker-ui/dist/index.html"; sourceTree = "<group>"; };
+		9406542C28EECCE70005ABEE /* DomainTransmit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTransmit.swift; sourceTree = "<group>"; };
 		DD3E71464509DE89293DAD94 /* Pods-NetworkLooker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkLooker.release.xcconfig"; path = "Target Support Files/Pods-NetworkLooker/Pods-NetworkLooker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,17 +87,27 @@
 		940653E728EDEE5F0005ABEE /* NetworkLooker */ = {
 			isa = PBXGroup;
 			children = (
+				9406542728EEC2920005ABEE /* source */,
 				940653E828EDEE5F0005ABEE /* AppDelegate.swift */,
 				940653EA28EDEE5F0005ABEE /* ViewController.swift */,
+				9406542C28EECCE70005ABEE /* DomainTransmit.swift */,
 				940653F928EDF3D80005ABEE /* NetworkLooker.a */,
 				940653FA28EDF3D80005ABEE /* NetworkLooker.h */,
-				940653F728EDEF560005ABEE /* index.html */,
 				940653EC28EDEE610005ABEE /* Assets.xcassets */,
 				940653EE28EDEE610005ABEE /* Main.storyboard */,
 				940653F128EDEE610005ABEE /* NetworkLooker.entitlements */,
 				940653FC28EDF3F90005ABEE /* NetworkLooker-Bridging-Header.h */,
 			);
 			path = NetworkLooker;
+			sourceTree = "<group>";
+		};
+		9406542728EEC2920005ABEE /* source */ = {
+			isa = PBXGroup;
+			children = (
+				9406542828EEC6390005ABEE /* app.bundle.js */,
+				9406542928EEC6390005ABEE /* index.html */,
+			);
+			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,9 +171,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				940653F828EDEF560005ABEE /* index.html in Resources */,
 				940653ED28EDEE610005ABEE /* Assets.xcassets in Resources */,
+				9406542B28EEC6390005ABEE /* index.html in Resources */,
 				940653F028EDEE610005ABEE /* Main.storyboard in Resources */,
+				9406542A28EEC6390005ABEE /* app.bundle.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9406542D28EECCE70005ABEE /* DomainTransmit.swift in Sources */,
 				940653EB28EDEE5F0005ABEE /* ViewController.swift in Sources */,
 				940653E928EDEE5F0005ABEE /* AppDelegate.swift in Sources */,
 			);
