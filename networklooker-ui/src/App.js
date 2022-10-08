@@ -78,9 +78,10 @@ const App = () => {
             setRequestHeader(list1)
             setResponseHeader(list2)
 
-            setRequestBody(res.request_body)
+            const decodedString1 = decodeURIComponent(escape(atob(res.request_body)));
+            setRequestBody(decodedString1)
 
-            var decodedString = atob(res.response_body);
+            const decodedString = decodeURIComponent(escape(atob(res.response_body)));
             setResponseBody(decodedString)
         })
     }
