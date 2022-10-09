@@ -14,7 +14,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         DomainTransmiter.default.webview = webView
 
         let delegateController = WKWebViewDelegateController()
