@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
 
 module.exports = {
   mode: 'development',
@@ -21,8 +22,9 @@ module.exports = {
       template: path.resolve(__dirname, './public/index.html'),
       filename: 'index.html',
     }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
     new friendlyErrorsWebpackPlugin(),
+    new ReactRefreshPlugin(),
   ],
   module: {
     rules: [
@@ -71,7 +73,7 @@ module.exports = {
     hot: true,
     quiet: true,
     host: "0.0.0.0",
-    port: 3000,
+    port: 8000,
     publicPath: '/',
   },
 }
