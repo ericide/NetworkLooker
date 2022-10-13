@@ -24,7 +24,12 @@
     "webpack": "^5.27.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-middleware": "^4.1.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "react-refresh": "^0.14.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.8",
+    "@babel/plugin-transform-react-jsx": "^7.13.12",
+    "@babel/preset-react": "^7.12.13",
+    "react-hot-loader": "^4.13.0"
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --colors --config webpack.conf.js",
@@ -33,16 +38,9 @@
     "server": "node server.js"
   },
   "dependencies": {
-    "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@babel/preset-react": "^7.12.13",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
-    "antd": "^4.23.4",
-    "element-react": "^1.4.34",
-    "element-theme-default": "^1.4.13",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-hls-player": "^3.0.7",
-    "react-hot-loader": "^4.13.0"
+    "react-dom": "^17.0.2"
   }
 }
