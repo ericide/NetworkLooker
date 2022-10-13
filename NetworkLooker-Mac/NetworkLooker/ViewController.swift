@@ -20,10 +20,10 @@ class ViewController: NSViewController {
         delegateController.webview = webView
         webView.configuration.userContentController.add(delegateController, name: "htmlMethods")
         
-//        loadFromDebug()
-        loadFromBundle()
+        loadFromDebug()
+//        loadFromBundle()
         DispatchQueue.global().async {
-            start()
+//            start()
         }
     }
     
@@ -38,7 +38,7 @@ class ViewController: NSViewController {
     }
     
     func loadFromDebug() {
-        webView.load(URLRequest(url: URL(string: "http://localhost:3000/")!))
+        webView.load(URLRequest(url: URL(string: "http://localhost:8000/")!))
     }
 
     override var representedObject: Any? {
