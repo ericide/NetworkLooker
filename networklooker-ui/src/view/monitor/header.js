@@ -7,10 +7,10 @@ export const HeaderView = ({headers}) => {
         return (
           <tr style={{ fontSize: "12px" }}>
               <td style={{textAlign: "right", whiteSpace: "nowrap", width: "1px"}} >
-                  <a style={{ color: "#999999" }}>{item.name}</a>:
+                  <a style={{ color: "#999999" }}>{item.k}</a>:
               </td>
               <td style={{paddingLeft: "4px"}}>
-                  {item.value}
+                  {item.v}
               </td>
           </tr>
         );

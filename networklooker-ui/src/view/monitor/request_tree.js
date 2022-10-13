@@ -1,42 +1,40 @@
-import {Tree} from 'antd';
-import React, {useEffect, useState} from 'react';
-import {makePathsTree} from "./util/tree_helper";
+import React, { useState} from 'react';
 
 export const RequestTree = ({dataSource, onClick}) => {
 
     const [treeData, setTreeData] = useState([]);
 
-    useEffect(()=>{
-
-        let dataList = []
-
-
-
-
-        for (const item of dataSource) {
-
-            const pathes = item.path.split("/").filter(entry => entry !== "");
-            let pathes2 = [item.host]
-            pathes2.push(...pathes)
-            item.parts = pathes2
-            dataList.push(item)
-
-
-
-
-            // let array = [item.host, ]
-            //
-            //
-            //
-            // dataList.findIndex((value)=>{
-            //
-            // })
-        }
-        let node = makePathsTree(dataList)
-
-        setTreeData(node.children)
-        // console.log(node)
-    },[dataSource])
+    // useEffect(()=>{
+    //
+    //     let dataList = []
+    //
+    //
+    //
+    //
+    //     for (const item of dataSource) {
+    //
+    //         const pathes = item.path.split("/").filter(entry => entry !== "");
+    //         let pathes2 = [item.host]
+    //         pathes2.push(...pathes)
+    //         item.parts = pathes2
+    //         dataList.push(item)
+    //
+    //
+    //
+    //
+    //         // let array = [item.host, ]
+    //         //
+    //         //
+    //         //
+    //         // dataList.findIndex((value)=>{
+    //         //
+    //         // })
+    //     }
+    //     let node = makePathsTree(dataList)
+    //
+    //     setTreeData(node.children)
+    //     // console.log(node)
+    // },[dataSource])
 
 
 
@@ -66,12 +64,13 @@ export const RequestTree = ({dataSource, onClick}) => {
         }
     }
 
+
+
     return <>
-        <Tree
-            onExpand={onExpand}
-            expandedKeys={expandedKeys}
-            autoExpandParent={autoExpandParent}
-            treeData={treeData}
-            onSelect={onSelect}
-        /></>
+        <ul style={{width: "100%", height: "100%"}}>
+            {dataSource.map((item) => {
+                return <li onClick={e=>onClick(item.id)} key={item.id}><a style={{color: "black"}}>{item.host}</a></li>
+            })}
+        </ul>
+    </>
 }
