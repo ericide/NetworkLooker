@@ -1,3 +1,4 @@
+import axios from "axios";
 
 
 
@@ -17,7 +18,7 @@ window.fetchCallback = (content, index, status) => {
     delete GResolve[index]
 }
 
-export const fetch = (path, method, params) => {
+const appFetch = (path, method, params) => {
 
     return new Promise((resolve, reject) => {
         const index = GIndex++
@@ -31,6 +32,26 @@ export const fetch = (path, method, params) => {
         GResolve[index] = {resolve, reject}
     })
 }
+
+const netFetch = (path, method, params) => {
+    if (method === "GET") {
+        return axios
+            .get(path,{params: params});
+    } else if (method === "POST") {
+        return axios
+            .post(path,params);
+    } else if (method === "PUT") {
+        return axios
+            .PUT(path,params);
+    } else if (method === "DELETE") {
+        return axios
+            .delete(path,params);
+    }
+}
+
+
+
+export const fetch = netFetch
 
 // export const startService = () => {
 //     window.webkit.messageHandlers.htmlMethods.postMessage({
