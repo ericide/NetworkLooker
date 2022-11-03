@@ -75,5 +75,15 @@ module.exports = {
     host: "0.0.0.0",
     port: 8000,
     publicPath: '/',
+    proxy: {
+      "/api": {
+        target: "http://localhost:9000",
+        secure: false,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/": "/"
+        }
+      }
+    }
   },
 }
