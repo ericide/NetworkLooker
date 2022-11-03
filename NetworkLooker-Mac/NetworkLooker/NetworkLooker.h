@@ -68,7 +68,7 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern void start();
+extern void start(char* sockPath);
 
 #ifdef __cplusplus
 }
