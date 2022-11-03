@@ -64,14 +64,17 @@ class WKWebViewDelegateController: NSObject, WKScriptMessageHandler {
             switch cmd {
             case "start":
                 DispatchQueue.global().async {
-                    start()
+                    
+//                    var path = UnsafeMutablePointer<CChar>(mutating: "/Users/wu/Downloads/my.sock")
+//                    start(path)
                 }
                 break;
             case "request":
                 if let index = body["index"] as? Int,
                     let path = body["path"] as? String,
-                   let params = body["params"] as? [String: Any]{
-                    DomainTransmiter.default.request(path: path, params: params, index: index)
+                   let params = body["params"] as? [String: Any],
+                   let method = body["method"] as? String{
+                    DomainTransmiter.default.request(path: path, method: method, params: params, index: index)
                 }
                 break;
             default:
