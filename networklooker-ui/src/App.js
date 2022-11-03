@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {allLinks, linkDetail} from "./service/links.service";
+import { startEngine, stopEngine} from "./service/app.service";
 import {HeaderView} from "./view/monitor/header";
 import { RequestTree} from "./view/monitor/request_tree";
 // import './index.css';
@@ -18,7 +19,7 @@ const App = () => {
     useEffect(() => {
         html_Methods()
         const i = setInterval(function (){
-            html_Methods()
+            // html_Methods()
         },1000)
         return () => {
             clearInterval(i)
@@ -28,14 +29,29 @@ const App = () => {
 
 
     function html_Methods() {
-        allLinks({start: 100}).then((res) => {
-
-            console.log(res)
-            setData(res)
-
-        })
+        // allLinks({start: 100}).then((res) => {
+        //
+        //     console.log(res)
+        //     setData(res)
+        //
+        // })
     }
 
+    const onStartClick = (e) => {
+        console.log(e)
+        startEngine().then(r => {
+            console.log(r)
+        }).catch(e => {
+            console.log(e)
+        })
+    }
+    const onStopClick = (e) => {
+        stopEngine().then(r => {
+            console.log(r)
+        }).catch(e => {
+            console.log(e)
+        })
+    }
     const onClick = (e) => {
         linkDetail({id: e}).then((res) => {
             console.log(res)
@@ -78,6 +94,8 @@ const App = () => {
 
     return (
         <div style={{display: "flex", flexDirection: "row", position: "fixed", left: 0, right: 0, top: 0, bottom: 0}}>
+            <button onClick={onStartClick}>start</button>
+            <button onClick={onStopClick}>stop</button>
             <div style={{width: "250px", flexShrink: 0, overflowY: "auto"}}>
                 {/*<Button type="primary" onClick={html_Methods}>hahahah</Button>*/}
                 <RequestTree onClick={onClick}
