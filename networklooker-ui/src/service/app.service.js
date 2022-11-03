@@ -1,9 +1,13 @@
 import {fetch} from "./base.service";
 
 export const startEngine = () => {
-    return fetch("engine/start", "POST", {})
+    return fetch("api/engine/start", "POST", {})
 }
 
-export const stopEngine = (params) => {
-    return fetch("engine/close", "POST", {})
+export const stopEngine = () => {
+    return fetch("api/engine/close", "POST", {})
+}
+
+export const getEngineStatus = () => {
+    return fetch("api/engine/status", "GET", {})
 }
