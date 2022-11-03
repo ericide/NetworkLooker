@@ -53,12 +53,12 @@ class DomainTransmiter {
                                 break
                             }
                         } else {
-                            sendResponse(content: "", index: index, status: 500)
+                            sendResponse(content: "{}", index: index, status: 500)
                             break
                         }
                     } while httpPraser.stage != .completed
                 } catch {
-                    sendResponse(content: "", index: index, status: 500)
+                    sendResponse(content: "{}", index: index, status: 500)
                     print(error)
                 }
             }
@@ -66,7 +66,7 @@ class DomainTransmiter {
             
         } catch {
             print(error)
-            sendResponse(content: "", index: index, status: 500)
+            sendResponse(content: "{}", index: index, status: 500)
         }
     }
     func sendResponse(content: String, index: Int, status: Int) {
