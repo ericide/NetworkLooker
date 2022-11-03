@@ -15,7 +15,7 @@ class DomainTransmiter {
     weak var webview: WKWebView?
     
     
-    func request(path: String, params: [String: Any], index: Int) {
+    func request(path: String, method: String, params: [String: Any], index: Int) {
         do {
             let socket = try Socket.create(family: .unix, type: .stream, proto: .tcp)
             try socket.connect(to: "/Users/wu/Downloads/my.sock")
@@ -28,7 +28,7 @@ class DomainTransmiter {
                     let body = try JSONSerialization.data(withJSONObject: params, options: .fragmentsAllowed)
                     
                     // Write the welcome string...
-                    try socket.write(from: "POST /\(path) HTTP/1.1\r\nHost:localhost\r\nContent-Length:\(body.count)\r\n\r\n\(String(data: body, encoding: .utf8)!)")
+                    try socket.write(from: "\(method) /\(path) HTTP/1.1\r\nHost:localhost\r\nContent-Length:\(body.count)\r\n\r\n\(String(data: body, encoding: .utf8)!)")
                     
                     let httpPraser = HttpResponseParser()
                     repeat {
@@ -41,9 +41,13 @@ class DomainTransmiter {
                                 
                                 print(bytesRead, readData.count)
                                 
-                                print(httpPraser.version)
-                                print(httpPraser.header)
-//                                print(httpPraser.body)
+                                print("version:", httpPraser.version)
+                                print("header:", httpPraser.header)
+                                print("body:", httpPraser.body)
+                                
+                                if (readData.count == 0) {
+                                    httpPraser.body = ""
+                                }
                                 sendResponse(content: httpPraser.body, index: index, status: httpPraser.statusCode)
                                 socket.close()
                                 break
