@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import ReactDOM from 'react-dom';
 import {allLinks, linkDetail} from "./service/links.service";
-import { startEngine, stopEngine} from "./service/app.service";
+import {getEngineStatus, startEngine, stopEngine} from "./service/app.service";
 import {HeaderView} from "./view/monitor/header";
 import { RequestTree} from "./view/monitor/request_tree";
-// import './index.css';
 
 const App = () => {
 
     const [data, setData] = useState([])
+
+    const [engineStatus, setEngineStatus] = useState(null)
 
     const [requestHeader, setRequestHeader] = useState([])
     const [responseHeader, setResponseHeader] = useState([])
@@ -26,7 +26,15 @@ const App = () => {
         }
     },[])
 
+    useEffect(() => {
+        refreshStatus()
+    },[])
 
+    async function refreshStatus()  {
+        const res = await getEngineStatus()
+        console.log(res.data.data.running)
+        setEngineStatus(res.data.data.running)
+    }
 
     function html_Methods() {
         // allLinks({start: 100}).then((res) => {
@@ -37,21 +45,15 @@ const App = () => {
         // })
     }
 
-    const onStartClick = (e) => {
-        console.log(e)
-        startEngine().then(r => {
-            console.log(r)
-        }).catch(e => {
-            console.log(e)
-        })
+    async function onStartClick(e) {
+        await startEngine()
+        refreshStatus()
     }
-    const onStopClick = (e) => {
-        stopEngine().then(r => {
-            console.log(r)
-        }).catch(e => {
-            console.log(e)
-        })
+    async function onStopClick(e) {
+        await stopEngine()
+        refreshStatus()
     }
+
     const onClick = (e) => {
         linkDetail({id: e}).then((res) => {
             console.log(res)
@@ -92,10 +94,20 @@ const App = () => {
         })
     }
 
+    const renderBootButton = (isOn) => {
+        if (isOn === true) {
+            return <button onClick={onStopClick}>stop</button>
+        } else if (isOn === false) {
+            return <button onClick={onStartClick}>start</button>
+        } else {
+            return <button>-</button>
+        }
+    }
+
     return (
         <div style={{display: "flex", flexDirection: "row", position: "fixed", left: 0, right: 0, top: 0, bottom: 0}}>
-            <button onClick={onStartClick}>start</button>
-            <button onClick={onStopClick}>stop</button>
+
+            {renderBootButton(engineStatus)}
             <div style={{width: "250px", flexShrink: 0, overflowY: "auto"}}>
                 {/*<Button type="primary" onClick={html_Methods}>hahahah</Button>*/}
                 <RequestTree onClick={onClick}
