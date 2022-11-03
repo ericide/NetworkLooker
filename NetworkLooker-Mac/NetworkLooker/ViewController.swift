@@ -62,13 +62,6 @@ class WKWebViewDelegateController: NSObject, WKScriptMessageHandler {
            let cmd = body["cmd"] as? String
         {
             switch cmd {
-            case "start":
-                DispatchQueue.global().async {
-                    
-//                    var path = UnsafeMutablePointer<CChar>(mutating: "/Users/wu/Downloads/my.sock")
-//                    start(path)
-                }
-                break;
             case "request":
                 if let index = body["index"] as? Int,
                     let path = body["path"] as? String,
@@ -81,8 +74,5 @@ class WKWebViewDelegateController: NSObject, WKScriptMessageHandler {
                 break;
             }
         }
-        
-        print(message.body)
-        print(message.name)
     }
 }
