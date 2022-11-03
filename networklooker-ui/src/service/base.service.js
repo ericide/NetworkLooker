@@ -17,14 +17,13 @@ window.fetchCallback = (content, index, status) => {
     delete GResolve[index]
 }
 
-export const fetch = (path, params) => {
+export const fetch = (path, method, params) => {
 
     return new Promise((resolve, reject) => {
-
         const index = GIndex++
-
         window.webkit.messageHandlers.htmlMethods.postMessage({
             cmd: 'request',
+            method: method,
             index: index,
             path,
             params
