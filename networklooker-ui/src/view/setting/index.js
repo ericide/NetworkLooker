@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { allLinks, linkDetail } from "../../service/links.service";
 import {
   querySetting,
   saveSetting,
 } from "../../service/setting.service";
 import {ExternalProxySettingComponent} from "./external_proxy";
+import {WatchingListSettingComponent} from "./watching_list";
 
 export const SettingPage = () => {
   const [content, setContent] = useState(<div/>);
@@ -39,7 +39,7 @@ export const SettingPage = () => {
     },
     {
       "Name": "Watching List",
-      "Page": <div/>,
+      "Page": <WatchingListSettingComponent setting={setting} setSetting={setSetting}/>,
     },
     {
       "Name": "Remote Config",
