@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  getEngineStatus,
-  startEngine,
-  stopEngine,
-} from "../../../service/app.service";
 
 export const ExternalProxySettingComponent = ({ setting, setSetting }) => {
-  const [externalProxy, setExternalProxy] = useState();
+  const [externalProxy, setExternalProxy] = useState("");
 
   useEffect(() => {
     setExternalProxy(setting.external_proxy);
