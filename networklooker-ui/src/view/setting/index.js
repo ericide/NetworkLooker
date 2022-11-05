@@ -1,60 +1,86 @@
 import React, { useEffect, useState } from "react";
-import {
-  querySetting,
-  saveSetting,
-} from "../../service/setting.service";
-import {ExternalProxySettingComponent} from "./external_proxy";
-import {WatchingListSettingComponent} from "./watching_list";
+import { querySetting, saveSetting } from "../../service/setting.service";
+import { ExternalProxySettingComponent } from "./external_proxy";
+import { WatchingListSettingComponent } from "./watching_list";
+import { RemoteConfigSettingComponent } from "./remote_config";
+import { ListeningPortSettingComponent } from "./listening_port";
+import { CertificateSettingComponent } from "./certificate";
 
 export const SettingPage = () => {
-  const [content, setContent] = useState(<div/>);
+  const [content, setContent] = useState(<div />);
 
   const [setting, setSetting] = useState(null);
-
 
   useEffect(() => {
     refreshData();
   }, []);
 
-
   useEffect(() => {
     if (setting === null) {
-      return
+      return;
     }
     saveSetting(setting).then((e) => {
-      console.log(e)
-    })
-
+      console.log(e);
+    });
   }, [setting]);
 
   async function refreshData() {
     const res = await querySetting();
-    setSetting(res.data.data)
+    setSetting(res.data.data);
   }
 
-  const settingMenuMap =  [
+  const settingMenuMap = [
     {
-      "Name": "Listening Port",
-      "Page": <div/>,
+      Name: "Listening Port",
+      Page: (
+        <ListeningPortSettingComponent
+          setting={setting}
+          setSetting={setSetting}
+        />
+      ),
     },
     {
-      "Name": "Watching List",
-      "Page": <WatchingListSettingComponent setting={setting} setSetting={setSetting}/>,
+      Name: "Certificate",
+      Page: (
+        <CertificateSettingComponent
+          setting={setting}
+          setSetting={setSetting}
+        />
+      ),
     },
     {
-      "Name": "Remote Config",
-      "Page": <div/>,
+      Name: "Watching List",
+      Page: (
+        <WatchingListSettingComponent
+          setting={setting}
+          setSetting={setSetting}
+        />
+      ),
     },
     {
-      "Name": "External Proxy",
-      "Page": <ExternalProxySettingComponent setting={setting} setSetting={setSetting}/>,
+      Name: "Remote Config",
+      Page: (
+        <RemoteConfigSettingComponent
+          setting={setting}
+          setSetting={setSetting}
+        />
+      ),
+    },
+    {
+      Name: "External Proxy",
+      Page: (
+        <ExternalProxySettingComponent
+          setting={setting}
+          setSetting={setSetting}
+        />
+      ),
     },
   ];
 
-  function menuListDidClick(menuItem){
+  function menuListDidClick(menuItem) {
     return (e) => {
-      setContent(menuItem.Page)
-    }
+      setContent(menuItem.Page);
+    };
   }
 
   return (
@@ -67,15 +93,17 @@ export const SettingPage = () => {
       <div style={{ width: "250px", flexShrink: 0, overflowY: "auto" }}>
         {/*<Button type="primary" onClick={html_Methods}>hahahah</Button>*/}
         <ul>
-          {settingMenuMap.map((item)=>{
-            return <li onClick={menuListDidClick(item)} key={item.Name}>{item.Name}</li>
+          {settingMenuMap.map((item) => {
+            return (
+              <li onClick={menuListDidClick(item)} key={item.Name}>
+                {item.Name}
+              </li>
+            );
           })}
         </ul>
       </div>
 
-      <div style={{ flex: 1 }}>
-        {content}
-      </div>
+      <div style={{ flex: 1 }}>{content}</div>
     </div>
   );
 };
