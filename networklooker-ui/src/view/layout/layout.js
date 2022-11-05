@@ -5,6 +5,7 @@ import {
   stopEngine,
 } from "../../service/app.service";
 import {SettingPage} from "../setting";
+import {MonitorPage} from "../monitor";
 
 export const MainLayout = () => {
   const [contentMode, setContentMode] = useState("monitor");
@@ -60,7 +61,7 @@ export const MainLayout = () => {
 
   function renderContent() {
     if (contentMode === "monitor") {
-      return <div></div>
+      return <MonitorPage/>
     } else {
       return <SettingPage/>
     }
@@ -72,10 +73,10 @@ export const MainLayout = () => {
         display: "flex",
         flexDirection: "column",
         position: "fixed",
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
+        left: "0",
+        right: "0",
+        top: "0",
+        bottom: "0",
       }}
     >
       <div style={{
@@ -86,9 +87,8 @@ export const MainLayout = () => {
       </div>
       <div
         style={{
-          display: "flex",
-          flexDirection: "row",
-          flex: 1
+          flex: 1,
+          overflow: "auto"
         }}
       >
         {renderContent()}
