@@ -10,7 +10,7 @@ window.fetchCallback = (content, index, status) => {
     const handler = GResolve[index]
 
     if (status === 200) {
-        handler.resolve(content)
+        handler.resolve({data: content})
     } else {
         handler.reject(content)
     }
@@ -18,10 +18,25 @@ window.fetchCallback = (content, index, status) => {
     delete GResolve[index]
 }
 
+const serialize = function(obj) {
+    var str = [];
+    for (var p in obj)
+        if (obj.hasOwnProperty(p)) {
+            str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        }
+    return str.join("&");
+}
+
 const appFetch = (path, method, params) => {
 
     return new Promise((resolve, reject) => {
         const index = GIndex++
+
+        if (method === "GET") {
+            path = `${path}?${serialize(params)}`
+            params = {}
+        }
+
         window.webkit.messageHandlers.htmlMethods.postMessage({
             cmd: 'request',
             method: method,
@@ -48,10 +63,14 @@ const netFetch = (path, method, params) => {
             .delete(path,params);
     }
 }
+let useFetch = netFetch
+if (window?.webkit?.messageHandlers?.htmlMethods !== null && window?.webkit?.messageHandlers?.htmlMethods !== undefined) {
+    useFetch = appFetch
+}
 
 
 
-export const fetch = netFetch
+export const fetch = useFetch
 
 // export const startService = () => {
 //     window.webkit.messageHandlers.htmlMethods.postMessage({
