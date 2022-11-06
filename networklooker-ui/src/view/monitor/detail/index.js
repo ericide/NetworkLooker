@@ -18,7 +18,7 @@ export const DetailView = ({ id }) => {
   }, [id]);
 
   return (
-    <div>
+    <div style={{overflowY: "auto"}}>
       <div>
         <button
           onClick={() => {
