@@ -12,18 +12,40 @@ import WebKit
 class ViewController: NSViewController {
 
     @IBOutlet weak var webView: WKWebView!
+    
+    
+    var sockPath: NSString = ""
+    var configPath: NSString = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let document = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last else {
+            return
+        }
+
+        // Swift Strings
+        sockPath = "\(document)/sock.sock" as NSString
+        configPath = "\(document)/config.json" as NSString
+        
+        
         DomainTransmiter.default.webview = webView
+        DomainTransmiter.default.sockPath = sockPath as String
 
         let delegateController = WKWebViewDelegateController()
         delegateController.webview = webView
         webView.configuration.userContentController.add(delegateController, name: "htmlMethods")
         
-        loadFromDebug()
-//        loadFromBundle()
+//        loadFromDebug()
+        loadFromBundle()
+        
+        
+        
+        
         DispatchQueue.global().async {
-//            start()
+            // Convert the Swift strings to CChars (or Int8) that map to
+            let sockPathToC = UnsafeMutablePointer<CChar>(mutating: self.sockPath.utf8String)
+            let configPathToC = UnsafeMutablePointer<CChar>(mutating: self.configPath.utf8String)
+            start(sockPathToC, configPathToC)
         }
     }
     
