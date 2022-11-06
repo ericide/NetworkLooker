@@ -14,11 +14,11 @@ class DomainTransmiter {
     static let `default` = DomainTransmiter()
     weak var webview: WKWebView?
     
-    
+    var sockPath = ""
     func request(path: String, method: String, params: [String: Any], index: Int) {
         do {
             let socket = try Socket.create(family: .unix, type: .stream, proto: .tcp)
-            try socket.connect(to: "/Users/wu/Downloads/my.sock")
+            try socket.connect(to: sockPath)
             
             let queue = DispatchQueue.global(qos: .default)
             queue.async { [unowned self, socket] in
@@ -26,6 +26,9 @@ class DomainTransmiter {
                 do {
                     
                     let body = try JSONSerialization.data(withJSONObject: params, options: .fragmentsAllowed)
+                    
+                    
+//                    print("====>", path, method, params, String.init(data: body, encoding: .utf8))
                     
                     // Write the welcome string...
                     try socket.write(from: "\(method) /\(path) HTTP/1.1\r\nHost:localhost\r\nContent-Length:\(body.count)\r\n\r\n\(String(data: body, encoding: .utf8)!)")
