@@ -8,7 +8,7 @@ export const ListeningPortSettingComponent = ({ setting, setSetting }) => {
   }, [setting]);
 
   const onValueChanged = (e) => {
-    setSock5Port(e.target.value);
+    setSock5Port(parseInt(e.target.value));
   };
 
   const saveClick = (e) => {
