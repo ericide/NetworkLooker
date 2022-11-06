@@ -33,11 +33,17 @@ export const RequestTree = ({ dataSource, onClick }) => {
       {dataSource.map((item) => {
         return (
           <div
-            style={{ backgroundColor: "green", margin: "8px" }}
+            style={{ backgroundColor: "green", margin: "8px", height: "60px", padding: "16px", overflow: "hidden" }}
             onClick={(e) => onClick(item.id)}
             key={item.id}
           >
-            <a style={{ color: "black" }}>{item.host + item.uri}</a>
+            <div>
+              <span style={{ color: "black", fontSize: "10px", display: "inline-block", border: "1px solid gray", marginRight: "8px" }}>{item.method}</span>
+              <a style={{ color: "black", fontSize: "10px"  }}>{item.host}</a>
+            </div>
+            <div>
+              <a style={{ color: "black", fontSize: "10px"  }}>{item.uri}</a>
+            </div>
           </div>
         );
       })}

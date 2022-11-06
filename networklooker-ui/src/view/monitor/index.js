@@ -49,7 +49,7 @@ export const MonitorPage = () => {
         height: "100%"
       }}
     >
-      <div style={{ width: "250px", flexShrink: 0, overflowY: "auto" }}>
+      <div style={{ width: "300px", flexShrink: 0, overflowY: "auto" }}>
         {/*<Button type="primary" onClick={html_Methods}>hahahah</Button>*/}
         <RequestTree
           onClick={onClick}
