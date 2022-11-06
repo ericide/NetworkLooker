@@ -25,14 +25,16 @@ export const HeadersView = ({ data }) => {
   return (
     <table style={{ height: "1px" }}>
       <tbody>
-        <p>request</p>
+        <tr>
+          <td>request</td>
+          <td></td>
+        </tr>
         {buildRow("req_proto", "proto", data.request_proto)}
         {buildRow("req_method", "method", data.method)}
         {buildRow("req_uri", "uri", data.uri)}
         {data.request_header.map((item, index) => {
           return buildRow(index, item.k, item.v);
         })}
-        <p>response</p>
 
         <tr>
           <td>response</td>
