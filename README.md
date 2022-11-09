@@ -9,7 +9,7 @@ You can monitor all data sent and received by the browser. It allows a developer
 Letters, these include request, response and HTTP headers (includes cookies and caching information)
 
 
-![Overview](./readme/01.png){:height="100px" width="400px"}
+![Overview](./readme/01.png)
 
 ## Platforms
 
