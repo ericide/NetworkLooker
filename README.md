@@ -1,7 +1,5 @@
 # NetworkLooker
 
-# NetworkLooker 
-
 **A cross-platform network debugging software**
 
 An proxy server that accesses the Internet when the browser connects to NetworkLooker's proxy
