@@ -5,7 +5,7 @@ export const ResponseView = ({ data }) => {
         return <div></div>
     }
     return (
-        <div>
+        <div style={{wordBreak: "break-all"}}>
             {data.response_body}
         </div>
     );
