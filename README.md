@@ -34,3 +34,4 @@ Letters, these include request, response and HTTP headers (includes cookies and 
 ```record```
 ```transmit```
 ```sock5 client```
+```websocket```
